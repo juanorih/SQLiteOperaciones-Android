@@ -25,44 +25,56 @@ public class MainActivity extends AppCompatActivity {
         helper = new DbAdapter(this);
 
         Button btnActualizarUsuario = (Button) findViewById(R.id.btnActualizar);
-        btnActualizarUsuario.setOnClickListener( new View.OnClickListener(){
+        btnActualizarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 startActualizarActivity();
+            }
+        });
+
+        Button btnEliminarUsuario = (Button) findViewById(R.id.btnEliminar);
+        btnEliminarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startEliminarActivity();
             }
         });
     }
 
-    public void agregaUsuario(View view){
+    public void agregarUsuario(View view) {
         String datoUsuario = usuario.getText().toString();
         String datoPassword = password.getText().toString();
-        if(datoUsuario.isEmpty() || datoPassword.isEmpty()){
-            Mensaje.aviso(this, "Ingrese tatnto el nombre como la contraseña");
-        }else{
-            long resultado  = helper.insertarDatos(datoUsuario, datoPassword);
-            if(resultado <= 0){
-                Mensaje.aviso(this, "Inserción fallida");
+        if (datoUsuario.isEmpty() || datoPassword.isEmpty()) {
+            Mensaje.aviso(this, "Ingrese tanto el nombre como la contraseña");
+        } else {
+            long resultado = helper.insertarDatos(datoUsuario, datoPassword);
+            if (resultado <= 0) {
+                Mensaje.aviso(this, "Inserción Fallida");
                 usuario.setText("");
                 password.setText("");
-            }else{
+            } else {
                 Mensaje.aviso(this, "Inserción Exitosa");
                 usuario.setText("");
                 password.setText("");
             }
         }
-
     }
 
-    public void verDatos(View view){
+    public void verDatos(View view) {
         String datos = helper.getData();
         Mensaje.aviso(this, datos);
     }
 
-    private void startActualizarActivity(){
+    private void startActualizarActivity() {
         Intent intent = new Intent(this, UsuarioActualizarActivity.class);
         startActivity(intent);
         finish();
     }
 
+    private void startEliminarActivity() {
+        Intent intent = new Intent(this, UsuarioEliminarActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 }

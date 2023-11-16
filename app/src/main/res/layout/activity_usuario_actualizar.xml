@@ -13,7 +13,6 @@
         android:layout_marginTop="122dp"
         android:ems="10"
         android:hint="@string/txt_nombre_actual"
-        android:inputType="textPersonName"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,11 +33,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNombreActual" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnActualizarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"
         android:backgroundTint="@color/naranja"
+        android:onClick="update"
         android:text="@string/btn_actualizar"
         app:icon="@drawable/baseline_refresh_24"
         app:layout_constraintEnd_toEndOf="parent"
