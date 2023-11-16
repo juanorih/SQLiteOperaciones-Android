@@ -12,4 +12,5 @@
     <!--    Colores Personalizados-->
     <color name="verde">#8BC34A</color>
     <color name="celeste">#03A9F4</color>
+    <color name="naranja">#FFEB3B</color>
 </resources>
